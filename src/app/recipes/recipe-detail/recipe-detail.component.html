@@ -18,11 +18,12 @@
       <ul class="dropdown-menu">
         <li
         (click)="handleAddIngredients()"
+        style="cursor: pointer"
         >
-          <a href="#">Add Ingredients</a>
+          <a>Add Ingredients</a>
         </li>
-        <li><a href="#">Edit Recipe</a></li>
-        <li><a href="#">Delete Recipe</a></li>
+        <li (click)="onEditRecipe()"><a>Edit Recipe</a></li>
+        <li><a>Delete Recipe</a></li>
       </ul>
     </div>
   </div>
