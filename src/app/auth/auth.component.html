@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col-xs-12">
-    <div class="alert alert-danger" *ngIf="errorState">
+    <!-- <div class="alert alert-danger" *ngIf="errorState">
       <p>{{errorState}}</p>
-    </div>
-
+    </div> -->
+    <!-- <app-alert [message]="errorState" *ngIf="errorState" (handleClose)="onHandleError()"></app-alert> -->
+    <ng-template appPlaceholder></ng-template>
     <div *ngIf="isLoading">
       <h3>Loading</h3>
     </div>
