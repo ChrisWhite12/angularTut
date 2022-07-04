@@ -7,25 +7,31 @@ import { Recipe } from "./recipe.model";
 @Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>()
+  private recipes: Recipe[] = []
 
-  private recipes: Recipe[] = [
-    new Recipe("Burger", "Burger", "", [
-      new Ingredient('Meat', '1'),
-      new Ingredient('Bun', '1'),
-      new Ingredient('Cheese', '50g')
-    ]),
-    new Recipe("Pasta", "Pasta", "", [
-      new Ingredient('Pasta', '100g'),
-      new Ingredient('Sauce', '250ml')
-    ]),
-    new Recipe("Salad", "Salad", "", [
-      new Ingredient('Spinach', '100g'),
-      new Ingredient('Tomato', '1'),
-      new Ingredient('Cheese', '50g')
-    ]),
-  ]
+  // private recipes: Recipe[] = [
+  //   new Recipe("Burger", "Burger", "", [
+  //     new Ingredient('Meat', '1'),
+  //     new Ingredient('Bun', '1'),
+  //     new Ingredient('Cheese', '50g')
+  //   ]),
+  //   new Recipe("Pasta", "Pasta", "", [
+  //     new Ingredient('Pasta', '100g'),
+  //     new Ingredient('Sauce', '250ml')
+  //   ]),
+  //   new Recipe("Salad", "Salad", "", [
+  //     new Ingredient('Spinach', '100g'),
+  //     new Ingredient('Tomato', '1'),
+  //     new Ingredient('Cheese', '50g')
+  //   ]),
+  // ]
 
   constructor(private shoppingService: ShoppingService ){}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes
+    this.recipesChanged.next(this.recipes.slice())
+  }
 
   getRecipes() {
     return this.recipes.slice();
