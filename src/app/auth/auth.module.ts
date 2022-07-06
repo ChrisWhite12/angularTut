@@ -1,5 +1,3 @@
-import { AlertComponent } from './../shared/alert/alert.component';
-import { PlaceholderDirective } from './../shared/placeholder/placeholder.directive';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -8,9 +6,7 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-    AlertComponent,
-    AuthComponent,
-    PlaceholderDirective
+    AuthComponent
   ],
   imports: [
     CommonModule,
