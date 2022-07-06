@@ -16,7 +16,7 @@ const initialState: IgState = {
   editIgIndex: -1
 }
 
-export function ShoppingListReducer(state = initialState, action: ShoppingListActions): IgState {
+export function shoppingListReducer(state = initialState, action: ShoppingListActions): IgState {
   switch (action.type){
     case IngredientActions.ADD_INGREDIENT:
       return {

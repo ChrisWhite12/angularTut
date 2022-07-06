@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { Recipe } from "./recipe.model";
 import { Store } from '@ngrx/store';
-import { IgState } from '../shopping/store/shopping.reducer';
+import * as fromApp from '../store/app.reducer';
 
 @Injectable()
 export class RecipeService {
@@ -29,9 +29,7 @@ export class RecipeService {
   // ]
 
   constructor(
-    private store: Store<{
-      shoppingList: IgState
-    }>,
+    private store: Store<fromApp.AppState>,
     ){}
 
   setRecipes(recipes: Recipe[]) {
