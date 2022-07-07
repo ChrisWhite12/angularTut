@@ -37,7 +37,6 @@ export class AuthService {
         returnSecureToken: true
       }
     ).pipe(
-      catchError(this.handleError),
       tap(({email, localId, idToken, expiresIn}) => {
         this.handleAuthentication(email, localId, idToken, +expiresIn)
       })
@@ -53,7 +52,6 @@ export class AuthService {
         returnSecureToken: true
       }
     ).pipe(
-      catchError(this.handleError),
       tap(({email, localId, idToken, expiresIn}) => {
         this.handleAuthentication(email, localId, idToken, +expiresIn)
       })
@@ -110,17 +108,5 @@ export class AuthService {
     }))
     this.autoLogout(expiresIn * 1000)
     localStorage.setItem('userData', JSON.stringify(newUser))
-  }
-
-  private handleError(errorRes: HttpErrorResponse){
-    if(!errorRes?.error?.error){
-      return throwError(() => 'An error occurred')
-    }
-    switch (errorRes.error.error.message) {
-      case 'EMAIL_EXISTS':
-        return throwError(() => 'Email already exists')
-      default:
-        return throwError(() => 'An error occurred')
-    }
   }
 }
